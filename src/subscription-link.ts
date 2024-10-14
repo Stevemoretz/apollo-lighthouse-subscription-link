@@ -56,11 +56,11 @@ function createSubscriptionHandler(
       data?.extensions?.lighthouse_subscriptions?.version;
 
     const channelName: string | null =
-      lighthouseVersion == 2
-        ? data?.extensions?.lighthouse_subscriptions?.channel
-        : data?.extensions?.lighthouse_subscriptions?.channels?.[
+      lighthouseVersion == 1
+        ? data?.extensions?.lighthouse_subscriptions?.channels?.[
             subscriptionName
-          ];
+          ]
+        : data?.extensions?.lighthouse_subscriptions?.channel;
 
     if (channelName) {
       setChannelName(channelName);
